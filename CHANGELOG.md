@@ -3,7 +3,7 @@
 1. Config fix
 2. More docs
 
-# 0.0.1 -- ethjs-provider-http
+# 0.0.1 -- vapjs-provider-http
 
 1. Basic testing
 2. Basic docs

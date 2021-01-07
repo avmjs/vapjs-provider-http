@@ -1,7 +1,7 @@
 const HttpProvider = require('../index.js'); // eslint-disable-line
-const TestRPC = require('ethereumjs-testrpc'); // eslint-disable-line
-const Eth = require('ethjs-query'); // eslint-disable-line
-const EthQuery = require('eth-query');
+const TestRPC = require('vaporyjs-testrpc'); // eslint-disable-line
+const Vap = require('vapjs-query'); // eslint-disable-line
+const VapQuery = require('vap-query');
 const Web3 = require('web3');
 const assert = require('chai').assert; // eslint-disable-line
 const SandboxedModule = require('sandboxed-module');
@@ -98,11 +98,11 @@ describe('HttpProvider', () => {
     });
   });
 
-  describe('test against ethjs-query', () => {
-    const eth = new Eth(new HttpProvider('http://localhost:5002')); // eslint-disable-line
+  describe('test against vapjs-query', () => {
+    const vap = new Vap(new HttpProvider('http://localhost:5002')); // eslint-disable-line
 
     it('should get accounts', (done) => {
-      eth.accounts((accountsError, accountsResult) => {
+      vap.accounts((accountsError, accountsResult) => {
         assert.equal(accountsError, null);
         assert.equal(typeof accountsResult, 'object');
         assert.equal(Array.isArray(accountsResult), true);
@@ -112,12 +112,12 @@ describe('HttpProvider', () => {
     });
 
     it('should get balances', (done) => {
-      eth.accounts((accountsError, accountsResult) => {
+      vap.accounts((accountsError, accountsResult) => {
         assert.equal(accountsError, null);
         assert.equal(typeof accountsResult, 'object');
         assert.equal(Array.isArray(accountsResult), true);
 
-        eth.getBalance(accountsResult[0], (balanceError, balanceResult) => {
+        vap.getBalance(accountsResult[0], (balanceError, balanceResult) => {
           assert.equal(balanceError, null);
           assert.equal(typeof balanceResult, 'object');
           assert.equal(balanceResult.toNumber(10) > 0, true);
@@ -128,11 +128,11 @@ describe('HttpProvider', () => {
     });
 
     it('should get coinbase and balance', (done) => {
-      eth.coinbase((accountsError, accountResult) => {
+      vap.coinbase((accountsError, accountResult) => {
         assert.equal(accountsError, null);
         assert.equal(typeof accountResult, 'string');
 
-        eth.getBalance(accountResult, (balanceError, balanceResult) => {
+        vap.getBalance(accountResult, (balanceError, balanceResult) => {
           assert.equal(balanceError, null);
           assert.equal(typeof balanceResult, 'object');
           assert.equal(balanceResult.toNumber(10) > 0, true);
@@ -143,8 +143,8 @@ describe('HttpProvider', () => {
     });
   });
 
-  describe('test against eth-query', () => {
-    const query = new EthQuery(new HttpProvider('http://localhost:5002')); // eslint-disable-line
+  describe('test against vap-query', () => {
+    const query = new VapQuery(new HttpProvider('http://localhost:5002')); // eslint-disable-line
 
     it('should get accounts', (done) => {
       query.accounts((accountsError, accountsResult) => {
@@ -190,7 +190,7 @@ describe('HttpProvider', () => {
     const web3 = new Web3(new HttpProvider('http://localhost:5002')); // eslint-disable-line
 
     it('should get accounts', (done) => {
-      web3.eth.getAccounts((accountsError, accountsResult) => {
+      web3.vap.getAccounts((accountsError, accountsResult) => {
         assert.equal(accountsError, null);
         assert.equal(typeof accountsResult, 'object');
         assert.equal(Array.isArray(accountsResult), true);
@@ -200,12 +200,12 @@ describe('HttpProvider', () => {
     });
 
     it('should get balances', (done) => {
-      web3.eth.getAccounts((accountsError, accountsResult) => {
+      web3.vap.getAccounts((accountsError, accountsResult) => {
         assert.equal(accountsError, null);
         assert.equal(typeof accountsResult, 'object');
         assert.equal(Array.isArray(accountsResult), true);
 
-        web3.eth.getBalance(accountsResult[0], (balanceError, balanceResult) => {
+        web3.vap.getBalance(accountsResult[0], (balanceError, balanceResult) => {
           assert.equal(balanceError, null);
           assert.equal(typeof balanceResult, 'object');
           assert.equal(balanceResult.toNumber(10) > 0, true);
@@ -216,11 +216,11 @@ describe('HttpProvider', () => {
     });
 
     it('should get coinbase and balance', (done) => {
-      web3.eth.getCoinbase((accountsError, accountResult) => {
+      web3.vap.getCoinbase((accountsError, accountResult) => {
         assert.equal(accountsError, null);
         assert.equal(typeof accountResult, 'string');
 
-        web3.eth.getBalance(accountResult, (balanceError, balanceResult) => {
+        web3.vap.getBalance(accountResult, (balanceError, balanceResult) => {
           assert.equal(balanceError, null);
           assert.equal(typeof balanceResult, 'object');
           assert.equal(balanceResult.toNumber(10) > 0, true);

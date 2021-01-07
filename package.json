@@ -1,5 +1,5 @@
 {
-  "name": "ethjs-provider-http",
+  "name": "vapjs-provider-http",
   "version": "0.1.4",
   "description": "A simple Http provider that follows the web3 spec.",
   "main": "lib/index.js",
@@ -33,7 +33,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/ethjs/ethjs-provider-http.git"
+    "url": "git+ssh://git@github.com/vapjs/vapjs-provider-http.git"
   },
   "babel": {
     "plugins": [
@@ -143,10 +143,10 @@
     "eslint-plugin-import": "1.8.0",
     "eslint-plugin-jsx-a11y": "1.2.0",
     "eslint-plugin-react": "5.1.1",
-    "eth-query": "2.1.0",
-    "ethereumjs-testrpc": "^3.0.2",
-    "ethjs-contract": "0.0.1",
-    "ethjs-query": "0.0.4",
+    "vap-query": "2.1.0",
+    "vaporyjs-testrpc": "^3.0.2",
+    "vapjs-contract": "0.0.1",
+    "vapjs-query": "0.0.4",
     "eventsource-polyfill": "0.9.6",
     "istanbul": "0.4.5",
     "json-loader": "0.5.4",
@@ -163,7 +163,7 @@
     "node": ">=6.5.0"
   },
   "keywords": [
-    "ethereum",
+    "vapory",
     "events",
     "rpc"
   ],
@@ -197,9 +197,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ethjs/ethjs-provider-http/issues"
+    "url": "https://github.com/vapjs/vapjs-provider-http/issues"
   },
-  "homepage": "https://github.com/ethjs/ethjs-provider-http#readme",
+  "homepage": "https://github.com/vapjs/vapjs-provider-http#readme",
   "lint-staged": {
     "lint:eslint": "*.js"
   },

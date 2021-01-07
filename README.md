@@ -1,32 +1,32 @@
-## ethjs-provider-http
+## vapjs-provider-http
 
 <div>
   <!-- Dependency Status -->
-  <a href="https://david-dm.org/ethjs/ethjs-provider-http">
-    <img src="https://david-dm.org/ethjs/ethjs-provider-http.svg"
+  <a href="https://david-dm.org/vapjs/vapjs-provider-http">
+    <img src="https://david-dm.org/vapjs/vapjs-provider-http.svg"
     alt="Dependency Status" />
   </a>
 
   <!-- devDependency Status -->
-  <a href="https://david-dm.org/ethjs/ethjs-provider-http#info=devDependencies">
-    <img src="https://david-dm.org/ethjs/ethjs-provider-http/dev-status.svg" alt="devDependency Status" />
+  <a href="https://david-dm.org/vapjs/vapjs-provider-http#info=devDependencies">
+    <img src="https://david-dm.org/vapjs/vapjs-provider-http/dev-status.svg" alt="devDependency Status" />
   </a>
 
   <!-- Build Status -->
-  <a href="https://travis-ci.org/ethjs/ethjs-provider-http">
-    <img src="https://travis-ci.org/ethjs/ethjs-provider-http.svg"
+  <a href="https://travis-ci.org/vapjs/vapjs-provider-http">
+    <img src="https://travis-ci.org/vapjs/vapjs-provider-http.svg"
     alt="Build Status" />
   </a>
 
   <!-- NPM Version -->
-  <a href="https://www.npmjs.org/package/ethjs-provider-http">
-    <img src="http://img.shields.io/npm/v/ethjs-provider-http.svg"
+  <a href="https://www.npmjs.org/package/vapjs-provider-http">
+    <img src="http://img.shields.io/npm/v/vapjs-provider-http.svg"
     alt="NPM version" />
   </a>
 
   <!-- Test Coverage -->
-  <a href="https://coveralls.io/r/ethjs/ethjs-provider-http">
-    <img src="https://coveralls.io/repos/github/ethjs/ethjs-provider-http/badge.svg" alt="Test Coverage" />
+  <a href="https://coveralls.io/r/vapjs/vapjs-provider-http">
+    <img src="https://coveralls.io/repos/github/vapjs/vapjs-provider-http/badge.svg" alt="Test Coverage" />
   </a>
 
   <!-- Javascript Style -->
@@ -37,22 +37,22 @@
 
 <br />
 
-A simple provider module for the Ethereum RPC layer.
+A simple provider module for the Vapory RPC layer.
 
 ## Install
 
 ```
-npm install --save ethjs-provider-http
+npm install --save vapjs-provider-http
 ```
 
 ## Usage
 
 ```js
-const HttpProvider = require('ethjs-provider-http');
-const Eth = require('ethjs-query');
-const eth = new Eth(new HttpProvider('https://ropsten.infura.io'));
+const HttpProvider = require('vapjs-provider-http');
+const Vap = require('vapjs-query');
+const vap = new Vap(new HttpProvider('https://ropsten.infura.io'));
 
-eth.getBlockByNumber(45039930, cb);
+vap.getBlockByNumber(45039930, cb);
 
 // result null { hash: 0x.. etc.. }
 });
@@ -68,32 +68,32 @@ Please help better the ecosystem by submitting issues and pull requests to defau
 
 ## Guides
 
-You'll find more detailed information on using `ethjs-provider-http` and tailoring it to your needs in our guides:
+You'll find more detailed information on using `vapjs-provider-http` and tailoring it to your needs in our guides:
 
 - [User guide](docs/user-guide.md) - Usage, configuration, FAQ and complementary tools.
-- [Developer guide](docs/developer-guide.md) - Contributing to `ethjs-provider-http` and writing your own code and coverage.
+- [Developer guide](docs/developer-guide.md) - Contributing to `vapjs-provider-http` and writing your own code and coverage.
 
 ## Help out
 
 There is always a lot of work to do, and will have many rules to maintain. So please help out in any way that you can:
 
-- Create, enhance, and debug ethjs rules (see our guide to ["Working on rules"](./github/CONTRIBUTING.md)).
+- Create, enhance, and debug vapjs rules (see our guide to ["Working on rules"](./github/CONTRIBUTING.md)).
 - Improve documentation.
 - Chime in on any open issue or pull request.
-- Open new issues about your ideas for making `ethjs-provider-http` better, and pull requests to show us how your idea works.
+- Open new issues about your ideas for making `vapjs-provider-http` better, and pull requests to show us how your idea works.
 - Add new tests to *absolutely anything*.
 - Create or contribute to ecosystem tools, like modules for encoding or contracts.
 - Spread the word.
 
 Please consult our [Code of Conduct](CODE_OF_CONDUCT.md) docs before helping out.
 
-We communicate via [issues](https://github.com/ethjs/ethjs-provider-http/issues) and [pull requests](https://github.com/ethjs/ethjs-provider-http/pulls).
+We communicate via [issues](https://github.com/vapjs/vapjs-provider-http/issues) and [pull requests](https://github.com/vapjs/vapjs-provider-http/pulls).
 
 ## Important documents
 
 - [Changelog](CHANGELOG.md)
 - [Code of Conduct](CODE_OF_CONDUCT.md)
-- [License](https://raw.githubusercontent.com/ethjs/ethjs-provider-http/master/LICENSE)
+- [License](https://raw.githubusercontent.com/vapjs/vapjs-provider-http/master/LICENSE)
 
 ## Licence
 

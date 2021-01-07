@@ -13,7 +13,7 @@ const XHR2 = require('xhr2');
  * InvalidResponseError helper for invalid errors.
  */
 function invalidResponseError(result, host) {
-  const message = !!result && !!result.error && !!result.error.message ? `[ethjs-provider-http] ${result.error.message}` : `[ethjs-provider-http] Invalid JSON RPC response from host provider ${host}: ${JSON.stringify(result, null, 2)}`;
+  const message = !!result && !!result.error && !!result.error.message ? `[vapjs-provider-http] ${result.error.message}` : `[vapjs-provider-http] Invalid JSON RPC response from host provider ${host}: ${JSON.stringify(result, null, 2)}`;
   return new Error(message);
 }
 
@@ -21,8 +21,8 @@ function invalidResponseError(result, host) {
  * HttpProvider should be used to send rpc calls over http
  */
 function HttpProvider(host, timeout) {
-  if (!(this instanceof HttpProvider)) { throw new Error('[ethjs-provider-http] the HttpProvider instance requires the "new" flag in order to function normally (e.g. `const eth = new Eth(new HttpProvider());`).'); }
-  if (typeof host !== 'string') { throw new Error('[ethjs-provider-http] the HttpProvider instance requires that the host be specified (e.g. `new HttpProvider("http://localhost:8545")` or via service like infura `new HttpProvider("http://ropsten.infura.io")`)'); }
+  if (!(this instanceof HttpProvider)) { throw new Error('[vapjs-provider-http] the HttpProvider instance requires the "new" flag in order to function normally (e.g. `const vap = new Vap(new HttpProvider());`).'); }
+  if (typeof host !== 'string') { throw new Error('[vapjs-provider-http] the HttpProvider instance requires that the host be specified (e.g. `new HttpProvider("http://localhost:8545")` or via service like infura `new HttpProvider("http://ropsten.infura.io")`)'); }
 
   const self = this;
   self.host = host;
@@ -60,13 +60,13 @@ HttpProvider.prototype.sendAsync = function (payload, callback) { // eslint-disa
   };
 
   request.ontimeout = () => {
-    callback(`[ethjs-provider-http] CONNECTION TIMEOUT: http request timeout after ${self.timeout} ms. (i.e. your connect has timed out for whatever reason, check your provider).`, null);
+    callback(`[vapjs-provider-http] CONNECTION TIMEOUT: http request timeout after ${self.timeout} ms. (i.e. your connect has timed out for whatever reason, check your provider).`, null);
   };
 
   try {
     request.send(JSON.stringify(payload));
   } catch (error) {
-    callback(`[ethjs-provider-http] CONNECTION ERROR: Couldn't connect to node '${self.host}': ${JSON.stringify(error, null, 2)}`, null);
+    callback(`[vapjs-provider-http] CONNECTION ERROR: Couldn't connect to node '${self.host}': ${JSON.stringify(error, null, 2)}`, null);
   }
 };
 
