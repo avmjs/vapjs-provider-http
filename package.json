@@ -1,5 +1,6 @@
 {
   "name": "vapjs-provider-http",
+  "namespace": "vapjs",
   "version": "0.1.4",
   "description": "A simple Http provider that follows the web3 spec.",
   "main": "lib/index.js",
