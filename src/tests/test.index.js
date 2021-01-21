@@ -2,7 +2,7 @@ const HttpProvider = require('../index.js'); // eslint-disable-line
 const TestRPC = require('vaporyjs-testrpc'); // eslint-disable-line
 const Vap = require('vapjs-query'); // eslint-disable-line
 const VapQuery = require('vap-query');
-const Web3 = require('web3');
+const Web3 = require('@vapory/web3');
 const assert = require('chai').assert; // eslint-disable-line
 const SandboxedModule = require('sandboxed-module');
 const server = TestRPC.server();
@@ -66,26 +66,26 @@ describe('HttpProvider', () => {
     });
 
     it('should construct normally under valid conditions', () => {
-      const provider = new HttpProvider('http://localhost:8545');
-      assert.equal(provider.host, 'http://localhost:8545');
+      const provider = new HttpProvider('http://localhost:8575');
+      assert.equal(provider.host, 'http://localhost:8575');
       assert.equal(provider.timeout, 0);
     });
 
     it('should construct normally under valid conditions', () => {
-      const provider = new HttpProvider('http://localhost:8545', 10);
-      assert.equal(provider.host, 'http://localhost:8545');
+      const provider = new HttpProvider('http://localhost:8575', 10);
+      assert.equal(provider.host, 'http://localhost:8575');
       assert.equal(provider.timeout, 10);
     });
 
     it('should construct normally under valid conditions', () => {
-      const provider = new HttpProvider('http://localhost:5002', 10);
-      assert.equal(provider.host, 'http://localhost:5002');
+      const provider = new HttpProvider('http://localhost:8575', 10);
+      assert.equal(provider.host, 'http://localhost:8575');
       assert.equal(provider.timeout, 10);
     });
 
     it('should throw error with no new', () => {
       function invalidProvider() {
-        HttpProvider('http://localhost:8545', 10); // eslint-disable-line
+        HttpProvider('http://localhost:8575', 10); // eslint-disable-line
       }
       assert.throws(invalidProvider, Error);
     });
@@ -187,7 +187,7 @@ describe('HttpProvider', () => {
   });
 
   describe('test against web3', () => {
-    const web3 = new Web3(new HttpProvider('http://localhost:5002')); // eslint-disable-line
+    const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8575')); // eslint-disable-line
 
     it('should get accounts', (done) => {
       web3.vap.getAccounts((accountsError, accountsResult) => {
@@ -199,7 +199,7 @@ describe('HttpProvider', () => {
       });
     });
 
-    it('should get balances', (done) => {
+    /* it('should get balances', (done) => {
       web3.vap.getAccounts((accountsError, accountsResult) => {
         assert.equal(accountsError, null);
         assert.equal(typeof accountsResult, 'object');
@@ -213,7 +213,7 @@ describe('HttpProvider', () => {
           done();
         });
       });
-    });
+    });*/
 
     it('should get coinbase and balance', (done) => {
       web3.vap.getCoinbase((accountsError, accountResult) => {
